@@ -28,7 +28,7 @@ Find us at:
 
 # [linuxserver/openvscode-server](https://github.com/linuxserver/docker-openvscode-server)
 
-[![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fopenvscode-server?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh/gateway/linuxserver-ci/docker/linuxserver%2Fopenvscode-server)
+[![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fopenvscode-server?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh)
 [![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-openvscode-server.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-openvscode-server)
 [![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-openvscode-server.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-openvscode-server/releases)
 [![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub%20Package&logo=github)](https://github.com/linuxserver/docker-openvscode-server/packages)
@@ -101,7 +101,7 @@ services:
       - SUDO_PASSWORD=password #optional
       - SUDO_PASSWORD_HASH= #optional
     volumes:
-      - /path/to/appdata/config:/config
+      - /path/to/openvscode-server/config:/config
     ports:
       - 3000:3000
     restart: unless-stopped
@@ -120,7 +120,7 @@ docker run -d \
   -e SUDO_PASSWORD=password `#optional` \
   -e SUDO_PASSWORD_HASH= `#optional` \
   -p 3000:3000 \
-  -v /path/to/appdata/config:/config \
+  -v /path/to/openvscode-server/config:/config \
   --restart unless-stopped \
   lscr.io/linuxserver/openvscode-server:latest
 ```
@@ -302,6 +302,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.08.24:** - Rebase to Ubuntu Noble.
 * **01.07.23:** - Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
 * **29.09.22:** - Rebase to jammy, switch to s6v3. Fix chown logic to skip `/config/workspace` contents.
 * **12.02.22:** - Update `install-extension` helper to compensate for upstream changes.
